@@ -28,11 +28,10 @@ describe('omdb service', function(){
         omdbApi.search('why him')
             .then(function(data){
                 responsedMovieData = data;
-                dump(data);
             });
         $httpBackend.flush();
 
-        expect(responsedMovieData).toBe(expectedMovieData);
+        expect(responsedMovieData).toEqual(expectedMovieData);
     })
 
     it('should return movie data by id', function(){
@@ -49,7 +48,7 @@ describe('omdb service', function(){
 
         $httpBackend.flush();
 
-        expect(responsedMovieData).toBe(expectedMovieById);
+        expect(responsedMovieData).toEqual(expectedMovieById);
     })
 
     it('should handle error', function(){
